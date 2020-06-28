@@ -1,6 +1,6 @@
 const { src, dest, series, watch } = require('gulp');
 const imagemin	= require('gulp-imagemin');
-const rename    = require("gulp-rename");
+const rename    = require('gulp-rename');
 const uglify    = require('gulp-uglify-es').default;
 const less      = require('gulp-less');
 const cleanCSS 	= require('gulp-clean-css');
@@ -51,7 +51,7 @@ function minifyJS(cb) {
     cb();
 }
 
-// Compiles all LESS files and concats into 1 css file
+// Compiles all LESS files and concat into 1 css file
 function lessCompileAndMin(cb) {
 	src('src/less/*.less')
 	.pipe(concat('bundle.min.css'))
