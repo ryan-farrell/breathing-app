@@ -14,9 +14,20 @@ const concat 	= require('gulp-concat');
  * gulp.watch   - Watch files and folder for changes 
  */
 
-// Logs Message
-function message(cb) {
-    console.log('Gulp has started ....')
+// Load any JS and CSS files required from any dependencies
+function nodeModuleFilesToCopy(cb) {
+    let aJSFilesToCopy = [
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/@fortawesome/fontawesome-free/js/all.min.js'
+    ]
+    src(aJSFilesToCopy)
+    .pipe(dest('dist/public/js'));
+
+    let aCSSFilesToCopy = [
+        'node_modules/@fortawesome/fontawesome-free/css/all.min.css'
+    ]
+    src(aCSSFilesToCopy)
+    .pipe(dest('dist/public/css'));
     cb();
 }
 
@@ -61,11 +72,12 @@ function lessCompileAndMin(cb) {
     cb();
 }
 
-exports.build = series( copy,
-                        copyAudio,
-                        imageMin,
-                        minifyJS,
-                        lessCompileAndMin
+exports.build = series( nodeModuleFilesToCopy,
+						copy,
+						copyAudio,
+						imageMin,
+						minifyJS,
+						lessCompileAndMin
                     );
 
 exports.watch = function() {

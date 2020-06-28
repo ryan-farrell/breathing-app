@@ -26,5 +26,8 @@
     "gulp-uglify-es": "^2.0.0",
     "terser": "^4.8.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "jquery": "^3.5.1"
+  }
 }
