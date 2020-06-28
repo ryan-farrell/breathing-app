@@ -1,5 +1,10 @@
-const gulp      = require('gulp');
-const imagemin  = require('gulp-imagemin');
+const { src, dest, series, watch } = require('gulp');
+const imagemin	= require('gulp-imagemin');
+const rename    = require("gulp-rename");
+const uglify    = require('gulp-uglify-es').default;
+const less      = require('gulp-less');
+const cleanCSS 	= require('gulp-clean-css');
+const concat 	= require('gulp-concat');
 
 /**
  * ** 4 BASIC GULP Methods
@@ -8,39 +13,63 @@ const imagemin  = require('gulp-imagemin');
  * gulp.dest    - Points to folder to output
  * gulp.watch   - Watch files and folder for changes 
  */
- 
-// exports.default = () => (
 
-  
-// );
+// Logs Message
+function message(cb) {
+    console.log('Gulp has started ....')
+    cb();
+}
 
+// Copy files to dist folder
+function copy(cb) {
+    src('src/*.html')
+    .pipe(dest('dist/public'));
+    cb();    
+}
 
- // Logs Message
- gulp.task('message', done => {
-    console.log('Gulp is running ....')
-    done();
- });
+// Copy Audio files to dist folder
+function copyAudio(cb) {
+    src('src/audio/*')
+    .pipe(dest('dist/public/audio'));    
+    cb();
+}
 
- // Copy HTML Files to Dist folder
- gulp.task('copyHTML', done => {
-     gulp.src('src/*.html')
-     .pipe(gulp.dest('dist'));    
-     done();
-});
-
- // Minifys Images to Dist Folder
- gulp.task('imageMin', done => {
-    gulp.src('src/img/*')
+// Minifys images to dist folder
+function imageMin(cb) {
+    src('src/img/*')
     .pipe(imagemin())
-    .pipe(gulp.dest('dist/img'))
-    done();
- });
- 
- // Minifys JS Files
- gulp.task('minifyJS', done => {
-    gulp.src('src/js/*')
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/js'))
-    done();
- });
- 
+    .pipe(dest('dist/public/img'))
+    cb();
+}
+
+// Minifys all JS files and concat into 1 js file
+function minifyJS(cb) {
+	src('src/js/*')
+	.pipe(concat('bundle.min.js'))
+    .pipe(uglify(/* options */))
+    .pipe(dest('dist/public/js'));
+    cb();
+}
+
+// Compiles all LESS files and concats into 1 css file
+function lessCompileAndMin(cb) {
+	src('src/less/*.less')
+	.pipe(concat('bundle.min.css'))
+    .pipe(less())
+    .pipe(cleanCSS())
+    .pipe(dest('dist/public/css'));
+    cb();
+}
+
+exports.build = series( copy,
+                        copyAudio,
+                        imageMin,
+                        minifyJS,
+                        lessCompileAndMin
+                    );
+
+exports.watch = function() {
+	// Two watch tasks setup looking at less & js files respectively 
+	watch('src/less/*.less', lessCompileAndMin);
+	watch('src/js/*.js', minifyJS);
+};
