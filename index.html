@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	<!-- jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style.css">
+    <title>Mindfulness</title>
+</head>
+<body>
+	<h1>Mindfulness</h1>
+
+	<div class="controls">
+		<audio id="waterfall-soundtrack" preload="auto">
+			<source src="./audio/zapsplat_nature_waterfall_small_multi_step_forest_creek_flow_through_tree_debris_30544.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+
+		<button id="play-btn" class="btns">Click for Sound <i class="far fa-play-circle"></i></button>
+		<button id="stop-btn" class="btns">Click to Stop <i class="far fa-stop-circle"></i></button>
+	</div>
+	<div class="wrapper">
+		<div class="message"><i class="fas fa-info-circle"></i> 
+			<p class="mytext"> Huge thanks to Brad Traversy @ <a class="message-link" href="https://www.traversymedia.com/">TraversyMedia</a> for putting this lovely mindfulness / breathing app out there for all 
+				to share. This app was created with a simple code along that Brad Traversy has put on <a class="message-link" href="https://www.youtube.com/watch?v=l-1ZrU6avzI">YouTube</a>. A great resouce for web developers if not the
+				best (IMHO) out there like all his videos. My reason for duplicating the app was to use a stable working app as the start point and begin to bring in other technologies to refactor what was originally created. The plan was 
+				to refactor the CSS with SASS and then use a taskbuilder to build the necessary CSS & JS for the frontend using a taskbuilder like Gulp. Plus also looking to include JQuery along the way. The overall goal 
+				was to use technologies I've been introduced to but not properly worked with and by including them here get a better understanding of them through the simple process of using them.
+			</p>
+		</div>
+		<div class="container">
+			<div class="circle"></div>
+			<p id="text""></p>
+			
+			<div class="pointer-container">
+				<div class="pointer"></div>
+			</div>
+			
+			<div class="gradient-circle"></div>
+		</div>
+	</div>
+	<footer><span>
+		Sound effects obtained from <a class="a-tag" href="https://www.zapsplat.com">https://www.zapsplat.com</a></footer>
+	</span>
+		<script src="./app.js"></script>
+</body>
+</html>

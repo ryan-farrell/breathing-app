@@ -1,0 +1,17 @@
+{
+  "name": "breathing-app",
+  "version": "1.0.0",
+  "description": "A mindfulness/breathing app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Building\" && exit 1",
+    "watch": "echo \"No watching...\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ryan Farrell",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

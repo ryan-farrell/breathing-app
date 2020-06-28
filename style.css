@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+body {
+    background: #ccd8eb url('./img/cave_waterfalls_bg.jpg') no-repeat center center/cover;
+    color: rgb(107, 194, 95);
+    font-family: 'Raleway', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 128, 128, 0.835);
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    height: 40px;
+    color: rgb(160, 180, 168);
+    margin-top: auto;
+    padding-right: 15px;
+}
+
+a {
+    color: rgb(160, 180, 168);
+    text-decoration: none;
+}
+
+.controls {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wrapper {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    position: relative;
+    min-height: 75vh;
+    left: -10px;
+} 
+
+.message {
+    align-self: start;
+    background-color: rgba(0, 128, 128, 0.835);
+    color: rgb(235, 241, 234);
+    padding: 2%;
+    width: 400px;
+    position: relative;
+    border-radius: 2px;
+    line-height: 1.8;
+}
+
+.a-tag:hover {
+    font-weight: bolder;
+}
+
+.message i {
+    float: left;
+    width: 100%;
+}
+
+.message:hover {
+    background-color: teal;
+}
+
+.message p {
+    padding: 9px;
+    display: none;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    position: relative;
+    transform: scale(1);
+}
+
+.gradient-circle {
+    background: conic-gradient(
+        #cfa538 0%,
+        #cfa538 40%,
+        #fff 40%,
+        #fff 60%,
+        #449cc0 60%,
+        #449cc0 100%
+    );
+    height: 320px;
+    width: 320px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: -2;
+    border-radius: 50%;
+}
+
+.circle {
+    background-color: rgb(22, 22, 22);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.pointer-container {
+    position: absolute;
+    top: -40px;
+    left: 140px;
+    width: 20px;
+    height: 190px;
+    animation: rotate 7.5s linear forwards infinite;
+    transform-origin: bottom center;
+}
+
+.pointer {
+    background-color: white;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+
+.container.grow {
+    animation: grow 3s linear forwards;
+}
+
+.container.shrink {
+    animation: shrink 3s linear forwards;
+}
+
+.message-link {
+    background-color: rgba(4, 75, 75, 0.835);
+    box-shadow: 0 3px 0 rgba(13, 190, 190, 0.835);
+    color: white;
+    padding: 0.3em;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.message-link:hover {
+    background-color:  rgba(13, 190, 190, 0.835);
+    cursor: pointer;
+}
+
+.message-link:active {
+    box-shadow: none;
+    top: 5px;
+}
+
+#play-btn, #stop-btn {
+    background-color: rgba(4, 75, 75, 0.835);
+    box-shadow: 0 4px 0 rgba(13, 190, 190, 0.835);
+    color: white;
+    padding: 0.7em 0.2em;
+    margin: 0 0.25em;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 170px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+    
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1.2);
+    }
+    
+    to {
+        transform: scale(1);
+    }
+}
