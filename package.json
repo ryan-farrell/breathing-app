@@ -17,18 +17,33 @@
   "author": "Ryan Farrell",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.3",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^7.1.0",
     "gulp-less": "^4.0.1",
     "gulp-rename": "^2.0.0",
-    "gulp-uglify-es": "^2.0.0",
-    "terser": "^4.8.0"
+    "gulp-uglify-es": "^2.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.1",
     "jquery": "^3.5.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ],
+    "compact":true
   }
 }
