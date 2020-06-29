@@ -1,4 +1,7 @@
 
-node_modules
-dist
 .vscode
+node_modules
+public/dist
+public/img
+public/audio
+public/index*
