@@ -6,6 +6,7 @@ const less      = require('gulp-less');
 const cleanCSS 	= require('gulp-clean-css');
 const concat 	= require('gulp-concat');
 const del 		= require('del');
+const babel 	= require('gulp-babel');
 
 /**
  **** 4 BASIC GULP Methods ****
@@ -69,8 +70,9 @@ function imageMin(cb) {
 // Minifys all JS files and concat into 1 js file
 function jsMin(cb) {
 	src('src/js/*')
+	.pipe(babel())
 	.pipe(concat('all.min.js'))
-    .pipe(uglify(/* options */))
+    .pipe(uglify())
     .pipe(dest('public/dist/assets/js'));
     cb();
 }
